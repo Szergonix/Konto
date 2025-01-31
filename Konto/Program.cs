@@ -62,7 +62,7 @@ class Program
 						}
 						break;
 					case "6":
-						conn.ExecuteOperation(new AccountInfoOperation(conn.GetSqlConnection(), numerKonta));
+						conn.ExecuteOperation(new AccountInfo(conn.GetSqlConnection(), numerKonta));
 						break;
 				}
 			}

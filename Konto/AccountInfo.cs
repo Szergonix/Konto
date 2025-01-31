@@ -1,11 +1,11 @@
 using System;
 using System.Data.SqlClient;
 
-class AccountInfoOperation : AccountOperation
+class AccountInfo : AccountOperation
 {
 	private int numerKonta;
 
-	public AccountInfoOperation(SqlConnection connection, int numerKonta)
+	public AccountInfo(SqlConnection connection, int numerKonta)
 		: base(connection)
 	{
 		this.numerKonta = numerKonta;
