@@ -16,7 +16,7 @@ class Program
 
 				if (choice == "7") break;
 				int numerKonta = 0;
-				if (choice != "1") // List accounts before selecting
+				if (choice != "1") 
 				{
 					AccountList.ListAccounts(conn.GetSqlConnection());
 					Console.WriteLine("Podaj numer konta (0 aby wróciæ): ");
@@ -40,13 +40,16 @@ class Program
 					case "2":
 						Console.Write("Podaj kwotê do wp³aty: ");
 						conn.ExecuteOperation(new Deposit(conn.GetSqlConnection(), numerKonta, decimal.Parse(Console.ReadLine())));
+						Console.WriteLine("Dokonano wp³aty.");
 						break;
 					case "3":
 						Console.Write("Podaj kwotê do wyp³aty: ");
 						conn.ExecuteOperation(new Payout(conn.GetSqlConnection(), numerKonta, decimal.Parse(Console.ReadLine())));
+						Console.WriteLine("Dokonano wyp³aty.");
 						break;
 					case "4":
 						conn.ExecuteOperation(new ApplyInterest(conn.GetSqlConnection(), numerKonta));
+						Console.WriteLine("Odsetki zosta³y naliczone.");
 						break;
 					case "5":
 						Console.Write("Czy na pewno chcesz usun¹æ konto? (tak/nie): ");
