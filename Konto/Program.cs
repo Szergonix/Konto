@@ -51,7 +51,6 @@ class Program
 							break;
 						case "4":
 							conn.ExecuteOperation(new ApplyInterest(conn.GetSqlConnection(), numerKonta));
-							Console.WriteLine("Odsetki zosta³y naliczone.");
 							break;
 						case "5":
 							Console.Write("Podaj nowe oprocentowanie: ");
