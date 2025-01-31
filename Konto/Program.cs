@@ -56,7 +56,6 @@ class Program
 							Console.Write("Podaj nowe oprocentowanie: ");
 							decimal noweOprocentowanie = decimal.Parse(Console.ReadLine());
 							conn.ExecuteOperation(new ChangeInterest(conn.GetSqlConnection(), numerKonta, noweOprocentowanie));
-							Console.WriteLine("Oprocentowanie zosta³o zmienione.");
 							break;
 						case "6":
 							conn.ExecuteOperation(new AccountInfo(conn.GetSqlConnection(), numerKonta));

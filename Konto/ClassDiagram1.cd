@@ -8,7 +8,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AccountInfo" Collapsed="true">
-    <Position X="6.75" Y="2" Width="1.5" />
+    <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>AccountInfo.cs</FileName>
@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ApplyInterest" Collapsed="true">
-    <Position X="4.75" Y="2" Width="1.5" />
+    <Position X="5.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>ApplyInterest.cs</FileName>
@@ -76,6 +76,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAQACAAAAQAACAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>UpdateAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChangeInterest" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAABAAAAQ=</HashCode>
+      <FileName>ChangeInterest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
