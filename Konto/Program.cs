@@ -1,0 +1,61 @@
+using System;
+
+class Program
+{
+	static void Main()
+	{
+		string server = "PC";
+		string database = "Konto_bankowe";
+
+		using (Connection conn = new Connection(server, database))
+		{
+			while (true)
+			{
+				Console.WriteLine("Wybierz opcjê:\n1. Dodaj konto\n2. Wp³aæ kwotê\n3. Wyp³aæ kwotê\n4. Nalicz odsetki\n5. Usuñ konto\n6. Wyœwietl informacje o koncie\n7. Wyjœcie");
+				string choice = Console.ReadLine();
+
+				if (choice == "7") break;
+				int numerKonta = 0;
+				if (choice != "1") // List accounts before selecting
+				{
+					AccountList.ListAccounts(conn.GetSqlConnection());
+					Console.WriteLine("Podaj numer konta (0 aby wróciæ): ");
+					numerKonta = int.Parse(Console.ReadLine());
+					if (numerKonta == 0) continue;
+				}
+
+				switch (choice)
+				{
+					case "1":
+						Console.Write("Podaj w³aœciciela: ");
+						string wlasciciel = Console.ReadLine();
+						Console.Write("Podaj stan: ");
+						decimal stan = decimal.Parse(Console.ReadLine());
+						Console.Write("Podaj oprocentowanie: ");
+						decimal oprocentowanie = decimal.Parse(Console.ReadLine());
+						Console.Write("Podaj debet: ");
+						decimal debet = decimal.Parse(Console.ReadLine());
+						conn.ExecuteOperation(new CreateAccount(conn.GetSqlConnection(), wlasciciel, stan, oprocentowanie, debet));
+						break;
+					case "2":
+						Console.Write("Podaj kwotê do wp³aty: ");
+						conn.ExecuteOperation(new Deposit(conn.GetSqlConnection(), numerKonta, decimal.Parse(Console.ReadLine())));
+						break;
+					case "3":
+						Console.Write("Podaj kwotê do wyp³aty: ");
+						conn.ExecuteOperation(new Payout(conn.GetSqlConnection(), numerKonta, decimal.Parse(Console.ReadLine())));
+						break;
+					case "4":
+						conn.ExecuteOperation(new ApplyInterest(conn.GetSqlConnection(), numerKonta));
+						break;
+					case "5":
+						conn.ExecuteOperation(new DeleteAccount(conn.GetSqlConnection(), numerKonta));
+						break;
+					case "6":
+						conn.ExecuteOperation(new AccountInfoOperation(conn.GetSqlConnection(), numerKonta));
+						break;
+				}
+			}
+		}
+	}
+}
