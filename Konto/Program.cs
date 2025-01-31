@@ -51,13 +51,18 @@ class Program
 							break;
 						case "4":
 							conn.ExecuteOperation(new ApplyInterest(conn.GetSqlConnection(), numerKonta));
+							Console.WriteLine("Odsetki zosta³y naliczone.");
 							break;
 						case "5":
 							Console.Write("Podaj nowe oprocentowanie: ");
 							decimal noweOprocentowanie = decimal.Parse(Console.ReadLine());
 							conn.ExecuteOperation(new ChangeInterest(conn.GetSqlConnection(), numerKonta, noweOprocentowanie));
+							Console.WriteLine("Oprocentowanie zosta³o zmienione.");
 							break;
 						case "6":
+							conn.ExecuteOperation(new AccountInfo(conn.GetSqlConnection(), numerKonta));
+							break;
+						case "7":
 							Console.Write("Czy na pewno chcesz usun¹æ konto? (tak/nie): ");
 							string confirmation = Console.ReadLine();
 							if (confirmation.ToLower() == "tak")
@@ -69,9 +74,6 @@ class Program
 							{
 								Console.WriteLine("Usuniêcie konta zosta³o anulowane.");
 							}
-							break;
-						case "7":
-							conn.ExecuteOperation(new AccountInfo(conn.GetSqlConnection(), numerKonta));
 							break;
 					}
 				}
