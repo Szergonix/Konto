@@ -49,7 +49,17 @@ class Program
 						conn.ExecuteOperation(new ApplyInterest(conn.GetSqlConnection(), numerKonta));
 						break;
 					case "5":
-						conn.ExecuteOperation(new DeleteAccount(conn.GetSqlConnection(), numerKonta));
+						Console.Write("Czy na pewno chcesz usun¹æ konto? (tak/nie): ");
+						string confirmation = Console.ReadLine();
+						if (confirmation.ToLower() == "tak")
+						{
+							conn.ExecuteOperation(new DeleteAccount(conn.GetSqlConnection(), numerKonta));
+							Console.WriteLine("Konto zosta³o pomyœlnie usuniête.");
+						}
+						else
+						{
+							Console.WriteLine("Usuniêcie konta zosta³o anulowane.");
+						}
 						break;
 					case "6":
 						conn.ExecuteOperation(new AccountInfoOperation(conn.GetSqlConnection(), numerKonta));
