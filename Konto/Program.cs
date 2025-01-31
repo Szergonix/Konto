@@ -11,7 +11,7 @@ class Program
 		{
 			while (true)
 			{
-				Console.WriteLine("Wybierz opcjê:\n1. Dodaj konto\n2. Wp³aæ kwotê\n3. Wyp³aæ kwotê\n4. Nalicz odsetki\n5. Usuñ konto\n6. Wyœwietl informacje o koncie\n7. Zmieñ oprocentowanie\n8. Wyjœcie");
+				Console.WriteLine("Wybierz opcjê:\n1. Dodaj konto\n2. Wp³aæ kwotê\n3. Wyp³aæ kwotê\n4. Nalicz odsetki\n5. Zmieñ oprocentowanie\n6. Wyœwietl informacje o koncie\n7. Usuñ konto\n8. Wyjœcie");
 				string choice = Console.ReadLine();
 
 				if (choice == "8") break;
