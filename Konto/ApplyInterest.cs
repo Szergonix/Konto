@@ -13,10 +13,18 @@ class ApplyInterest : AccountOperation
 
 	public override void Execute()
 	{
-		using (SqlCommand cmd = new SqlCommand("UPDATE Konto SET stan = stan + (stan * oprocentowanie / 100) WHERE numer_konta=@numerKonta;", conn))
+		try
 		{
-			cmd.Parameters.AddWithValue("@numerKonta", numerKonta);
-			cmd.ExecuteNonQuery();
+			using (SqlCommand cmd = new SqlCommand("UPDATE Konto SET stan = stan + (stan * oprocentowanie / 100) WHERE numer_konta=@numerKonta;", conn))
+			{
+				cmd.Parameters.AddWithValue("@numerKonta", numerKonta);
+				cmd.ExecuteNonQuery();
+			}
+			Console.WriteLine("Odsetki zosta³y naliczone.");
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine("Wyst¹pi³ b³¹d podczas naliczania odsetek: " + ex.Message);
 		}
 	}
 }

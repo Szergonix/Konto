@@ -106,6 +106,7 @@
     <Compile Include="AccountList.cs" />
     <Compile Include="AccountOperation.cs" />
     <Compile Include="ApplyInterest.cs" />
+    <Compile Include="ChangeInterest.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="CreateAccount.cs" />
     <Compile Include="DeleteAccount.cs" />
